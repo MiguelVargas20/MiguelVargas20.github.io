@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>Portafolio</title>
 </head>
-<header>
-    <ul class="navbar">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-    </ul>
-</header>
 
 <body>
-    <h1>Miguel Andres Vargas Leon</h1>
-    <h2>Junior Software Developer</h2>
+  <header>
+    <ul class="navbar">
+      <li><a class="nav-item active" href="#">INICIO</a></li>
+      <li><a class="nav-item" href="#">PROYECTOS</a></li>
+      <li><a class="nav-item" href="#">CONTÁCTAME</a></li>
+    </ul>
+  </header>
+
+  <main class="hero">
+    <div class="foto">
+      <img src="foto.jpg" alt="Foto de perfil">
+    </div>
+
+    <div class="info">
+      <h1>Miguel Andres Vargas Leon</h1>
+      <p>Estudiante de Análisis y Desarrollo de Software</p>
+      <p>Bogotá, Colombia</p>
+
+      <button class="btn-arrow">→</button>
+    </div>
+  </main>
+
+  <div class="projects">
+    <h2>Proyectos Destacados</h2>
+    <div class="project-list">
+      <div class="project-item">
+        <h3>Golden Booking</h3>
+        <p>Sofware Desarrollado en React como Framework para el Front y Java - SpringBoot para el Back, usando bases de datos SQL por medio de MySQL</p>
+      </div>
+      <div class="project-item">
+        <h3>Proyecto 2</h3>
+        <p>Descripción breve del proyecto 2.</p>
+      </div>
+      <div class="project-item">
+        
+      </div>
+    </div>
+
+  <footer>
+    <p><a href="https://www.linkedin.com/in/miguel-andres-vargas-leon-a4a3a0330" target="_blank">LinkedIn</a></p>
+    <p><a href="https://github.com/MiguelVargas20" target="_blank">GitHub</a></p>
+  </footer>
 </body>
-<footer>
-    <div class="Contacto"></div>
-    <p> Perfil LinkedIn </p>
-        <a href="https://www.linkedin.com/in/miguel-andres-vargas-leon-9b8a1b1b3/">LinkedIn</a>
-    </p>
-    <p> Github </p>
-    <p>
-        <a href="mailto:miguel.vargas.leon@gmail.com">GitHub Profile</a>
-    </p>
-</footer>
 </html>

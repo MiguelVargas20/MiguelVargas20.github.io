@@ -1,8 +1,97 @@
-*{
-    background-color:black;
-    align-items:center;
-    
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 120px;
+  font-style: normal;
+  font-variation-settings:
+    "GRAD" 0;
 }
-.navbar{
-    
+
+body {
+  background-color: #012d3f;
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15rem;
+  list-style: none;
+  padding: 3rem;
+}
+
+.nav-item {
+  background-color: white;
+  color: rgb(0, 0, 0);
+  padding: 12px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+  background-color: rgb(0, 204, 255);
+  color: white;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 4rem;
+}
+
+/* FOTO */
+.foto img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: white;
+  padding: 10px;
+}
+
+/* TEXTO */
+.info h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.info p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* BOTÓN FLECHA */
+.btn-arrow {
+  margin-top: 1.5rem;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
