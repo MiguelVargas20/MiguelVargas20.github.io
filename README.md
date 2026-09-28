@@ -7,7 +7,7 @@ Portafolio profesional como **Desarrollador de Software Junior** (Java · Spring
 ## Contenido
 
 - **Sobre mí** — perfil y objetivo profesional.
-- **Formación académica** — Tecnólogo en Análisis y Desarrollo de Software (SENA) y Técnico en Programación de Software.
+- **Formación académica** — Tecnólogo en Análisis y Desarrollo de Software (SENA) y Técnico en Programación de Software (SENA).
 - **Proyectos** — Golden Booking (full stack), Golden Booking Móvil, BiblioRed y Calculadora Móvil, con enlaces a su código.
 - **Habilidades técnicas** — agrupadas por área.
 - **Contacto** — formulario funcional, correo, LinkedIn y GitHub.
