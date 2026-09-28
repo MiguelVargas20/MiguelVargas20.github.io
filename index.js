@@ -1,374 +1,154 @@
 /* =========================================
-   MIGUEL VARGAS — PORTFOLIO JS
+   Miguel Vargas — Portafolio
+   Menú móvil, sección activa y formulario de contacto.
    ========================================= */
 
 "use strict";
 
-// ===== CURSOR PERSONALIZADO =====
-const cursor    = document.getElementById("cursor");
-const cursorDot = document.getElementById("cursor-dot");
-let mouseX = 0, mouseY = 0;
-let dotX = 0,   dotY = 0;
+const CONTACT_EMAIL = "andresvarg150@gmail.com";
+// FormSubmit reenvía el formulario al correo. La primera vez envía un
+// correo de activación a esa dirección que hay que confirmar.
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
-document.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursor.style.left = mouseX + "px";
-  cursor.style.top  = mouseY + "px";
+
+// ===== MENÚ MÓVIL =====
+const navToggle = document.getElementById("navToggle");
+const mainNav   = document.getElementById("mainNav");
+
+function setMenu(open) {
+  mainNav.classList.toggle("open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+}
+
+navToggle.addEventListener("click", () => {
+  setMenu(navToggle.getAttribute("aria-expanded") !== "true");
 });
 
-function animateDot() {
-  dotX += (mouseX - dotX) * 0.12;
-  dotY += (mouseY - dotY) * 0.12;
-  cursorDot.style.left = dotX + "px";
-  cursorDot.style.top  = dotY + "px";
-  requestAnimationFrame(animateDot);
-}
-animateDot();
+mainNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => setMenu(false));
+});
 
-document.addEventListener("mouseleave", () => { cursor.style.opacity = "0"; cursorDot.style.opacity = "0"; });
-document.addEventListener("mouseenter", () => { cursor.style.opacity = "1"; cursorDot.style.opacity = "1"; });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") setMenu(false);
+});
+
+document.addEventListener("click", (e) => {
+  if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) setMenu(false);
+});
 
 
-// ===== CANVAS BACKGROUND =====
-const canvas = document.getElementById("bg-canvas");
-const ctx    = canvas.getContext("2d");
+// ===== SECCIÓN ACTIVA EN EL MENÚ =====
+const navLinks = [...mainNav.querySelectorAll('a[href^="#"]')];
+const sections = navLinks
+  .map(link => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
 
-let particles = [];
-let W, H;
-
-function resizeCanvas() {
-  W = canvas.width  = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-  initParticles();
-}
-
-function initParticles() {
-  particles = [];
-  const count = Math.floor((W * H) / 16000);
-  for (let i = 0; i < count; i++) {
-    particles.push({
-      x:  Math.random() * W,
-      y:  Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
-      r:  Math.random() * 1.5 + 0.3,
-      a:  Math.random() * 0.4 + 0.1,
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+      });
     });
-  }
+  }, { rootMargin: "-45% 0px -50% 0px" });
+
+  sections.forEach(section => observer.observe(section));
 }
 
-function drawGrid() {
-  ctx.strokeStyle = "rgba(139, 92, 246, 0.03)";
-  ctx.lineWidth   = 0.5;
-  const gs = 70;
-  for (let x = 0; x <= W; x += gs) {
-    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
-  }
-  for (let y = 0; y <= H; y += gs) {
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
-  }
+
+// ===== AÑO DEL PIE DE PÁGINA =====
+document.getElementById("year").textContent = new Date().getFullYear();
+
+
+// ===== FORMULARIO DE CONTACTO =====
+const form      = document.getElementById("contactForm");
+const submitBtn = document.getElementById("submitBtn");
+const statusEl  = document.getElementById("formStatus");
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+const rules = {
+  nombre:  (v) => v.length >= 2  ? "" : "Escribe tu nombre.",
+  email:   (v) => EMAIL_RE.test(v) ? "" : "Escribe un correo válido, por ejemplo nombre@correo.com.",
+  mensaje: (v) => v.length >= 10 ? "" : "El mensaje debe tener al menos 10 caracteres.",
+};
+
+function validateField(name) {
+  const input = form.elements[name];
+  const error = rules[name](input.value.trim());
+  const field = input.closest(".form-field");
+  field.classList.toggle("invalid", Boolean(error));
+  input.setAttribute("aria-invalid", String(Boolean(error)));
+  document.getElementById(`${name}-error`).textContent = error;
+  return !error;
 }
 
-function drawParticles() {
-  particles.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-    if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(139, 92, 246, ${p.a})`;
-    ctx.fill();
-  });
-}
-
-function connectParticles() {
-  const maxDist = 100;
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const d  = Math.sqrt(dx * dx + dy * dy);
-      if (d < maxDist) {
-        const alpha = 0.08 * (1 - d / maxDist);
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
-    }
-  }
-}
-
-function animateCanvas() {
-  ctx.clearRect(0, 0, W, H);
-  drawGrid();
-  connectParticles();
-  drawParticles();
-  requestAnimationFrame(animateCanvas);
-}
-
-resizeCanvas();
-animateCanvas();
-window.addEventListener("resize", resizeCanvas);
-
-
-// ===== NAVBAR SCROLL =====
-const navbar = document.getElementById("navbar");
-window.addEventListener("scroll", () => {
-  navbar.classList.toggle("scrolled", window.scrollY > 60);
-});
-
-
-// ===== HAMBURGER / MOBILE MENU =====
-const hamburger  = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobileMenu");
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("open");
-  mobileMenu.classList.toggle("open");
-});
-
-document.querySelectorAll(".mob-link").forEach(link => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("open");
-    mobileMenu.classList.remove("open");
+Object.keys(rules).forEach(name => {
+  form.elements[name].addEventListener("blur", () => validateField(name));
+  form.elements[name].addEventListener("input", () => {
+    if (form.elements[name].closest(".form-field").classList.contains("invalid")) validateField(name);
   });
 });
 
+function setStatus(message, type) {
+  statusEl.className = `form-status ${type || ""}`.trim();
+  statusEl.innerHTML = message;
+}
 
-// ===== TYPING EFFECT HERO =====
-const roles = [
-  "Estudiante de Análisis y Desarrollo de Software",
-  "Desarrollador Full Stack",
-  "Apasionado por la tecnología",
-  "Siempre aprendiendo...",
-];
+function mailtoLink() {
+  const subject = form.elements.asunto.value.trim() || "Contacto desde el portafolio";
+  const body = `${form.elements.mensaje.value.trim()}\n\n— ${form.elements.nombre.value.trim()} (${form.elements.email.value.trim()})`;
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
-let roleIndex  = 0;
-let charIndex  = 0;
-let deleting   = false;
-const roleEl   = document.getElementById("role-text");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-function typeRole() {
-  if (!roleEl) return;
-  const current = roles[roleIndex];
-  if (!deleting) {
-    roleEl.textContent = current.slice(0, charIndex + 1);
-    charIndex++;
-    if (charIndex === current.length) {
-      deleting = true;
-      setTimeout(typeRole, 2200);
-      return;
-    }
-    setTimeout(typeRole, 65);
-  } else {
-    roleEl.textContent = current.slice(0, charIndex - 1);
-    charIndex--;
-    if (charIndex === 0) {
-      deleting   = false;
-      roleIndex  = (roleIndex + 1) % roles.length;
-    }
-    setTimeout(typeRole, 35);
+  const valid = Object.keys(rules).map(validateField).every(Boolean);
+  if (!valid) {
+    setStatus("Revisa los campos marcados.", "error");
+    form.querySelector(".invalid input, .invalid textarea")?.focus();
+    return;
   }
-}
 
+  // Si el campo trampa tiene contenido, es un bot: no se envía nada.
+  if (form.elements._honey.value) return;
 
-// ===== TERMINAL TYPEWRITER (comandos del hero) =====
-function terminalSequence() {
-  const cmds = ["cmd1", "cmd2", "cmd3"];
-  const outs = ["out1", "out2", "out3"];
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Enviando…";
+  setStatus("", "");
 
-  cmds.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = ""; });
-  outs.forEach(id => { const el = document.getElementById(id); if (el) el.style.opacity = "0"; });
+  try {
+    const response = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        nombre:   form.elements.nombre.value.trim(),
+        email:    form.elements.email.value.trim(),
+        asunto:   form.elements.asunto.value.trim() || "(sin asunto)",
+        mensaje:  form.elements.mensaje.value.trim(),
+        _subject: form.elements._subject.value,
+        _replyto: form.elements.email.value.trim(),
+        _template: "table",
+        _captcha: "false",
+      }),
+    });
 
-  let delay = 400;
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || String(data.success) === "false") throw new Error(data.message || "Error de envío");
 
-  cmds.forEach((id, i) => {
-    const cmdEl  = document.getElementById(id);
-    const outEl  = document.getElementById(outs[i]);
-    const fullTxt = cmdEl ? cmdEl.dataset.full || (id === "cmd1" ? "Quien soy" : id === "cmd2" ? "Información" : "Habilidades") : "";
-
-    // type command
-    let c = 0;
-    const textToType = id === "cmd1" ? "Quien soy" : id === "cmd2" ? "Información" : "Habilidades";
-
-    setTimeout(() => {
-      if (!cmdEl) return;
-      cmdEl.textContent = "";
-      const typeInterval = setInterval(() => {
-        cmdEl.textContent += textToType[c];
-        c++;
-        if (c >= textToType.length) {
-          clearInterval(typeInterval);
-          // show output
-          setTimeout(() => {
-            if (outEl) outEl.style.opacity = "1";
-            if (i === 0) typeRole(); // start role typing after first output
-          }, 200);
-        }
-      }, 60);
-    }, delay);
-
-    delay += textToType.length * 60 + 700;
-  });
-}
-
-
-// ===== INTERSECTION OBSERVER (reveal + skill bars + counters) =====
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
-
-
-// Skill bar animation
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll(".sb-fill").forEach(bar => {
-        const w = bar.getAttribute("data-w");
-        setTimeout(() => { bar.style.width = w + "%"; }, 200);
-      });
-      barObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll(".skill-card").forEach(card => barObserver.observe(card));
-
-
-// Counter animation
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el     = entry.target;
-      const target = parseInt(el.dataset.target, 10);
-      let current  = 0;
-      const step   = Math.ceil(target / 30);
-      const interval = setInterval(() => {
-        current += step;
-        if (current >= target) { current = target; clearInterval(interval); }
-        el.textContent = current + "+";
-      }, 50);
-      counterObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll(".counter").forEach(el => counterObserver.observe(el));
-
-
-// ===== SCROLL TO TOP =====
-const scrollTopBtn = document.getElementById("scrollTop");
-if (scrollTopBtn) {
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
-
-
-// ===== CONTACT FORM =====
-const contactForm = document.getElementById("contactForm");
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const btn      = contactForm.querySelector(".btn-submit");
-    const textSpan = btn.querySelector(".btn-text");
-    const iconSpan = btn.querySelector(".btn-icon");
-
-    // feedback visual
-    btn.style.background = "#10b981";
-    btn.style.boxShadow  = "0 0 25px rgba(16,185,129,0.4)";
-    textSpan.textContent = "Mensaje enviado";
-    iconSpan.textContent = "✓";
-
-    setTimeout(() => {
-      btn.style.background = "";
-      btn.style.boxShadow  = "";
-      textSpan.textContent = "Enviar Mensaje";
-      iconSpan.textContent = "→";
-      contactForm.reset();
-    }, 3000);
-  });
-}
-
-
-// ===== SMOOTH SCROLL ACTIVE NAV =====
-const sections  = document.querySelectorAll("section[id], .hero[id]");
-const navAnchors = document.querySelectorAll(".nav-links a");
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navAnchors.forEach(a => {
-        a.style.color = a.getAttribute("href") === `#${id}` ? "var(--text)" : "";
-      });
-    }
-  });
-}, { threshold: 0.3 });
-
-sections.forEach(s => sectionObserver.observe(s));
-
-
-// ===== SKILL TAGS HOVER GLOW =====
-document.querySelectorAll(".stag, .s-pill, .ft-badge").forEach(tag => {
-  tag.addEventListener("mouseenter", () => {
-    tag.style.boxShadow = "0 0 12px rgba(139, 92, 246, 0.35)";
-  });
-  tag.addEventListener("mouseleave", () => {
-    tag.style.boxShadow = "";
-  });
-});
-
-
-// ===== PROJECT CARD TILT EFFECT =====
-document.querySelectorAll(".proj-card, .featured-project, .skill-card").forEach(card => {
-  card.addEventListener("mousemove", (e) => {
-    const rect  = card.getBoundingClientRect();
-    const cx    = rect.left + rect.width  / 2;
-    const cy    = rect.top  + rect.height / 2;
-    const dx    = (e.clientX - cx) / (rect.width  / 2);
-    const dy    = (e.clientY - cy) / (rect.height / 2);
-    const tilt  = 4;
-    card.style.transform = `perspective(800px) rotateX(${-dy * tilt}deg) rotateY(${dx * tilt}deg) translateY(-3px)`;
-  });
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "";
-  });
-});
-
-
-// ===== HERO PARALLAX ON SCROLL =====
-const heroBgText = document.querySelector(".hero-bg-text");
-window.addEventListener("scroll", () => {
-  if (heroBgText) {
-    heroBgText.style.transform = `translate(-50%, calc(-50% + ${window.scrollY * 0.15}px))`;
+    form.reset();
+    setStatus("¡Gracias! Tu mensaje fue enviado. Te responderé pronto.", "ok");
+  } catch (err) {
+    setStatus(
+      `No se pudo enviar el mensaje. Puedes escribirme directamente a ` +
+      `<a href="${mailtoLink()}">${CONTACT_EMAIL}</a>.`,
+      "error"
+    );
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Enviar mensaje";
   }
 });
-
-
-// ===== INIT =====
-(function init() {
-  // make first two reveals visible immediately
-  const immediateReveal = document.querySelectorAll(".hero .reveal");
-  setTimeout(() => {
-    immediateReveal.forEach(el => el.classList.add("visible"));
-    terminalSequence();
-  }, 100);
-
-  // terminal output opacity
-  ["out1","out2","out3"].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) { el.style.opacity = "0"; el.style.transition = "opacity 0.4s ease"; }
-  });
-})();
