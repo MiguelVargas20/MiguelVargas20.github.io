@@ -3,612 +3,386 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio de Miguel Andres Vargas Leon - Estudiante de Análisis y Desarrollo de Software">
+  <title>Miguel Vargas | Desarrollador de Software Junior</title>
+  <meta name="description" content="Portafolio de Miguel Andrés Vargas León, desarrollador de software junior (Java, Spring Boot, React, Flutter) en Bogotá, Colombia. Tecnólogo en Análisis y Desarrollo de Software en el SENA.">
+  <meta name="author" content="Miguel Andrés Vargas León">
+  <meta name="theme-color" content="#1e40af">
+  <link rel="canonical" href="https://miguelvargas20.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://miguelvargas20.github.io/">
+  <meta property="og:title" content="Miguel Vargas | Desarrollador de Software Junior">
+  <meta property="og:description" content="Java · Spring Boot · React · Flutter. Proyectos, formación y contacto.">
+  <meta property="og:locale" content="es_CO">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e40af'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white'%3EMV%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Syne:wght@400..800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <title>Miguel Vargas — Dev Portfolio</title>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- NOISE OVERLAY -->
-  <div class="noise"></div>
+  <!-- ===== ENCABEZADO ===== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand" aria-label="Miguel Vargas, ir al inicio">
+        <span class="brand-mark">MV</span>
+        <span class="brand-name">Miguel Vargas</span>
+      </a>
 
-  <!-- CURSOR -->
-  <div id="cursor"></div>
-  <div id="cursor-dot"></div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
 
-  <!-- CANVAS BACKGROUND -->
-  <canvas id="bg-canvas"></canvas>
-
-  <!-- ===== NAVBAR ===== -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <div class="nav-brand">
-        <span class="brand-bracket">[</span>
-        <span class="brand-text">MV</span>
-        <span class="brand-bracket">]</span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#sobre-mi" data-num="00">Inicio</a></li>
-        <li><a href="#skills" data-num="01">Skills</a></li>
-        <li><a href="#proyectos" data-num="02">Proyectos</a></li>
-        <li><a href="#formacion" data-num="03">Formación</a></li>
-        <li><a href="#contacto" data-num="04">Contacto</a></li>
-      </ul>
-      <div class="nav-right">
-        <span class="nav-status"><span class="pulse"></span>Disponible</span>
-        <button class="hamburger" id="hamburger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#formacion">Formación</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#sobre-mi" class="mob-link">00 / Inicio</a></li>
-      <li><a href="#skills" class="mob-link">01 / Skills</a></li>
-      <li><a href="#proyectos" class="mob-link">02 / Proyectos</a></li>
-      <li><a href="#formacion" class="mob-link">03 / Formación</a></li>
-      <li><a href="#contacto" class="mob-link">04 / Contacto</a></li>
-    </ul>
-  </div>
+  <main id="contenido">
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="sobre-mi">
-    <div class="hero-bg-text">DEVELOPER</div>
-    <div class="container hero-grid">
+    <!-- ===== INICIO ===== -->
+    <section class="hero" id="inicio">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Desarrollador de Software Junior · Bogotá, Colombia</p>
+          <h1>Miguel Andrés Vargas León</h1>
+          <p class="hero-lead">
+            Estudiante de Tecnología en Análisis y Desarrollo de Software en el SENA.
+            Construyo aplicaciones web y móviles completas con <strong>Java y Spring Boot</strong>
+            en el backend y <strong>React</strong> y <strong>Flutter</strong> en el frontend.
+          </p>
 
-      <!-- TERMINAL CARD -->
-      <div class="terminal-card reveal">
-        <div class="terminal-bar">
-          <div class="t-dot t-red"></div>
-          <div class="t-dot t-yellow"></div>
-          <div class="t-dot t-green"></div>
-          <span class="t-title"> Porfafolio Miguel Vargas</span>
+          <div class="hero-actions">
+            <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+            <a href="#contacto" class="btn btn-secondary">Contactarme</a>
+          </div>
+
+          <ul class="hero-links" aria-label="Perfiles">
+            <li>
+              <a href="https://github.com/MiguelVargas20" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/miguel-andres-vargas-leon-a4a3a0330" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="mailto:andresvarg150@gmail.com">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                andresvarg150@gmail.com
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="terminal-body">
-          <div class="t-line">
-            <span class="t-prompt">$</span>
-            <span class="t-cmd typed-cmd" id="cmd1"> ¿Quien soy?</span>
-          </div>
-          <div class="t-output" id="out1">
-            <div class="hero-name-term">Miguel Andres<br>Vargas León</div>
-            <div class="hero-role-term" id="typed-role"><span id="role-text"></span><span class="caret">▋</span></div>
-          </div>
 
-          <div class="t-line mt-lg">
-            <span class="t-prompt">$</span>
-            <span class="t-cmd typed-cmd" id="cmd2"> Información</span>
-          </div>
-          <div class="t-output" id="out2">
-            <div class="json-block">
-              <span class="json-brace">{</span><br>
-              &nbsp;&nbsp;<span class="json-key">"Ubicación"</span>: <span class="json-val">"Bogotá, Colombia"</span>,<br>
-              &nbsp;&nbsp;<span class="json-key">"Estado"</span>: <span class="json-val-green">"Disponible"</span>,<br>
-              &nbsp;&nbsp;<span class="json-key">"Enfoque"</span>: <span class="json-val">"Desarrollador Junior FullStack"</span>,<br>
-              &nbsp;&nbsp;<span class="json-key">"Correo"</span>: <span class="json-val">"andresvarg150@gmail.com"</span><br>
-              <span class="json-brace">}</span>
-            </div>
-          </div>
-
-          <div class="t-line mt-lg">
-            <span class="t-prompt">$</span>
-            <span class="t-cmd typed-cmd" id="cmd3"> Habilidades</span>
-          </div>
-          <div class="t-output" id="out3">
-            <div class="skill-pills-term">
-              <span class="s-pill">React</span>
-              <span class="s-pill">Java</span>
-              <span class="s-pill">Spring Boot</span>
-              <span class="s-pill">MySQL</span>
-              <span class="s-pill">HTML/CSS</span>
-              <span class="s-pill">JavaScript</span>
-              <span class="s-pill">MongoDB</span>
-              <span class="s-pill">Python</span>
-            </div>
-          </div>
-
-          <div class="t-line mt-lg blink-line">
-            <span class="t-prompt">$</span>
-            <span class="caret-line">▋</span>
-          </div>
-        </div>
+        <aside class="hero-card" aria-label="Resumen del perfil">
+          <div class="avatar" aria-hidden="true">MV</div>
+          <dl class="facts">
+            <div><dt>Formación</dt><dd>Tecnólogo ADSO — SENA (en curso)</dd></div>
+            <div><dt>Enfoque</dt><dd>Desarrollo Full Stack</dd></div>
+            <div><dt>Stack principal</dt><dd>Java · Spring Boot · React</dd></div>
+            <div><dt>Ubicación</dt><dd>Bogotá, Colombia</dd></div>
+            <div><dt>Disponibilidad</dt><dd><span class="status-dot" aria-hidden="true"></span>Prácticas y empleo junior</dd></div>
+          </dl>
+        </aside>
       </div>
+    </section>
 
-      <!-- HERO RIGHT -->
-      <div class="hero-right reveal" style="--delay:0.2s">
-        <div class="avatar-frame">
-          <div class="avatar-glow"></div>
-          <div class="avatar-circle">
-            <span class="avatar-initials">MV</span>
-          </div>
-          <div class="avatar-deco deco-1"></div>
-          <div class="avatar-deco deco-2"></div>
-          <svg class="orbit-svg" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(139,92,246,0.2)" stroke-width="1" stroke-dasharray="4 8"/>
-            <circle class="orbit-dot" cx="190" cy="100" r="4" fill="#8b5cf6"/>
-          </svg>
-        </div>
-
-        <div class="hero-meta">
-          <div class="meta-item">
-            <span class="meta-num counter" data-target="1">0</span>
-            <span class="meta-label">Proyecto<br>completado</span>
-          </div>
-          <div class="meta-divider"></div>
-          <div class="meta-item">
-            <span class="meta-num counter" data-target="2">0</span>
-            <span class="meta-label">Años de<br>formación</span>
-          </div>
-          <div class="meta-divider"></div>
-          <div class="meta-item">
-            <span class="meta-num">∞</span>
-            <span class="meta-label">Ganas de<br>aprender</span>
-          </div>
-        </div>
-
-        <div class="hero-cta">
-          <a href="#proyectos" class="btn-main">Ver proyectos <span class="btn-arrow">→</span></a>
-          <a href="#contacto" class="btn-ghost">Contactar</a>
-        </div>
+    <!-- ===== SOBRE MÍ ===== -->
+    <section class="section" id="sobre-mi" aria-labelledby="sobre-mi-title">
+      <div class="container narrow">
+        <h2 class="section-title" id="sobre-mi-title">Sobre mí</h2>
+        <p>
+          Soy desarrollador de software junior con formación técnica y tecnológica. Me interesa
+          construir aplicaciones completas: desde el diseño de la API y la base de datos hasta la
+          interfaz que usa el cliente final. Mi proyecto principal, <strong>Golden Booking</strong>,
+          es una plataforma de reservas con frontend en React, API REST en Spring Boot,
+          base de datos MongoDB, pruebas de extremo a extremo con Cypress y despliegue en la nube.
+        </p>
+        <p>
+          Trabajo con Git y GitHub a diario, organizo el código por módulos y documento cómo
+          instalar, probar y desplegar cada proyecto. Busco una oportunidad de práctica o empleo
+          junior donde pueda aportar y seguir aprendiendo dentro de un equipo.
+        </p>
       </div>
-    </div>
+    </section>
 
-    <div class="scroll-indicator">
-      <div class="scroll-line"></div>
-      <span>scroll</span>
-    </div>
-  </section>
+    <!-- ===== FORMACIÓN ===== -->
+    <section class="section section-alt" id="formacion" aria-labelledby="formacion-title">
+      <div class="container">
+        <h2 class="section-title" id="formacion-title">Formación académica</h2>
+        <p class="section-intro">Mi base profesional: programas formales enfocados en el ciclo completo de desarrollo de software.</p>
 
-  <!-- ===== SKILLS ===== -->
-  <section class="section" id="skills">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">01</span>
-        <h2 class="section-title">Stack Técnico</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="skills-grid">
-
-        <div class="skill-card reveal" style="--delay:0s">
-          <div class="skill-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h3 class="skill-card-title">Frontend</h3>
-          <p class="skill-card-sub">// Interfaces de usuario</p>
-          <div class="skill-tags">
-            <span class="stag">React</span>
-            <span class="stag">HTML5</span>
-            <span class="stag">CSS3</span>
-            <span class="stag">JavaScript ES6+</span>
-          </div>
-          <div class="skill-bar-group">
-            <div class="skill-bar-item">
-              <span class="sb-label">React</span>
-              <div class="sb-track"><div class="sb-fill" data-w="65"></div></div>
-              <span class="sb-pct">65%</span>
-            </div>
-            <div class="skill-bar-item">
-              <span class="sb-label">HTML/CSS</span>
-              <div class="sb-track"><div class="sb-fill" data-w="80"></div></div>
-              <span class="sb-pct">80%</span>
-            </div>
-            <div class="skill-bar-item">
-              <span class="sb-label">JavaScript</span>
-              <div class="sb-track"><div class="sb-fill" data-w="60"></div></div>
-              <span class="sb-pct">60%</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-card reveal" style="--delay:0.1s">
-          <div class="skill-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3 class="skill-card-title">Backend</h3>
-          <p class="skill-card-sub">// Lógica del servidor</p>
-          <div class="skill-tags">
-            <span class="stag">Java</span>
-            <span class="stag">Spring Boot</span>
-            <span class="stag">REST APIs</span>
-          </div>
-          <div class="skill-bar-group">
-            <div class="skill-bar-item">
-              <span class="sb-label">Java</span>
-              <div class="sb-track"><div class="sb-fill" data-w="70"></div></div>
-              <span class="sb-pct">70%</span>
-            </div>
-            <div class="skill-bar-item">
-              <span class="sb-label">Spring Boot</span>
-              <div class="sb-track"><div class="sb-fill" data-w="55"></div></div>
-              <span class="sb-pct">55%</span>
-            </div>
-            <div class="skill-bar-item">
-              <span class="sb-label">REST APIs</span>
-              <div class="sb-track"><div class="sb-fill" data-w="60"></div></div>
-              <span class="sb-pct">60%</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-card reveal" style="--delay:0.2s">
-          <div class="skill-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          </div>
-          <h3 class="skill-card-title">Base de Datos</h3>
-          <p class="skill-card-sub">// Persistencia de datos</p>
-          <div class="skill-tags">
-            <span class="stag">MySQL</span>
-            <span class="stag">SQL</span>
-          </div>
-          <div class="skill-bar-group">
-            <div class="skill-bar-item">
-              <span class="sb-label">MySQL</span>
-              <div class="sb-track"><div class="sb-fill" data-w="65"></div></div>
-              <span class="sb-pct">65%</span>
-            </div>
-            <div class="skill-bar-item">
-              <span class="sb-label">SQL Queries</span>
-              <div class="sb-track"><div class="sb-fill" data-w="70"></div></div>
-              <span class="sb-pct">70%</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-card reveal" style="--delay:0.3s">
-          <div class="skill-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </div>
-          <h3 class="skill-card-title">Herramientas</h3>
-          <p class="skill-card-sub">// Dev environment</p>
-          <div class="skill-tags">
-            <span class="stag">Git</span>
-            <span class="stag">GitHub</span>
-            <span class="stag">VS Code</span>
-            <span class="stag">GitHub Pages</span>
-          </div>
-          <div class="skill-bar-group">
-            <div class="skill-bar-item">
-              <span class="sb-label">Git / GitHub</span>
-              <div class="sb-track"><div class="sb-fill" data-w="75"></div></div>
-              <span class="sb-pct">75%</span>
-            </div>
-            <div class="skill-bar-item">
-              <span class="sb-label">VS Code</span>
-              <div class="sb-track"><div class="sb-fill" data-w="85"></div></div>
-              <span class="sb-pct">85%</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROYECTOS ===== -->
-  <section class="section section-dark" id="proyectos">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">02</span>
-        <h2 class="section-title">Proyectos Destacados</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <!-- FEATURED PROJECT -->
-      <div class="featured-project reveal">
-        <div class="fp-badge">// Proyecto Destacado — 01</div>
-        <div class="fp-grid">
-          <div class="fp-info">
-            <div class="fp-tag-row">
-              <span class="fp-type">Full Stack App</span>
-              <span class="fp-year">2026</span>
-            </div>
-            <h3 class="fp-title">Golden Booking</h3>
-            <p class="fp-desc">Sistema de reservas completo con arquitectura Full-stack. Permite gestionar reservas, usuarios y disponibilidad en tiempo real. Interfaz moderna en React con backend robusto en Java Spring Boot.</p>
-
-            <div class="fp-achievements">
-              <div class="fp-achievement">
-                <span class="ach-dot"></span>
-                Frontend desarrollado con React como framework principal
-              </div>
-              <div class="fp-achievement">
-                <span class="ach-dot"></span>
-                Backend REST API con Java Spring Boot
-              </div>
-              <div class="fp-achievement">
-                <span class="ach-dot"></span>
-                Base de datos no relacionales Mongo DB para gestión de datos flexible
-              </div>
-              <div class="fp-achievement">
-                <span class="ach-dot"></span>
-                Gestión de reservas y disponibilidad en tiempo real
-              </div>
-            </div>
-
-            <div class="fp-tech-stack">
-              <span class="ft-badge">React</span>
-              <span class="ft-badge">Java</span>
-              <span class="ft-badge">Spring Boot</span>
-              <span class="ft-badge">MongoDB</span>
-              <span class="ft-badge">REST API</span>
-              
-            </div>
-
-            <div class="fp-actions">
-              <a href="https://github.com/MiguelVargas20" target="_blank" class="btn-main">Ver en GitHub <span>→</span></a>
-            </div>
-          </div>
-
-          <div class="fp-visual">
-            <div class="fp-mockup">
-              <div class="mock-bar">
-                <div class="t-dot t-red"></div>
-                <div class="t-dot t-yellow"></div>
-                <div class="t-dot t-green"></div>
-                <span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--muted)">golden-booking — localhost:3000</span>
-              </div>
-              <div class="mock-body">
-                <div class="mock-nav-line"></div>
-                <div class="mock-content">
-                  <div class="mock-card"></div>
-                  <div class="mock-card"></div>
-                  <div class="mock-card tall"></div>
-                </div>
-                <div class="mock-stat-row">
-                  <div class="mock-stat"></div>
-                  <div class="mock-stat"></div>
-                  <div class="mock-stat"></div>
-                </div>
-                <div class="mock-tag-row">
-                  <span class="mock-tag">React</span>
-                  <span class="mock-tag">Spring</span>
-                  <span class="mock-tag">MySQL</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MORE PROJECTS GRID -->
-      <div class="more-projects-title reveal">
-        <span>// Más proyectos</span>
-        <div class="mp-line"></div>
-      </div>
-
-      <div class="projects-grid">
-        <div class="proj-card wip-card reveal" style="--delay:0s">
-          <div class="pc-header">
-            <div class="pc-num">02</div>
-            <span class="pc-status wip">En construcción</span>
-          </div>
-          <h3 class="pc-title">Proyecto 02</h3>
-          <p class="pc-desc">Próximo proyecto en desarrollo. Aquí irá la descripción de tu siguiente trabajo cuando esté en marcha.</p>
-          <div class="pc-tech">
-            <span class="pt-tag">TBD</span>
-          </div>
-          <div class="pc-footer">
-            <div class="wip-bar"><div class="wip-fill"></div></div>
-            <span class="wip-pct">En progreso</span>
-          </div>
-        </div>
-
-        <div class="proj-card wip-card reveal" style="--delay:0.1s">
-          <div class="pc-header">
-            <div class="pc-num">03</div>
-            <span class="pc-status wip">En construcción</span>
-          </div>
-          <h3 class="pc-title">Proyecto 03</h3>
-          <p class="pc-desc">Espacio reservado para el tercer proyecto. La historia continúa...</p>
-          <div class="pc-tech">
-            <span class="pt-tag">TBD</span>
-          </div>
-          <div class="pc-footer">
-            <div class="wip-bar"><div class="wip-fill"></div></div>
-            <span class="wip-pct">En progreso</span>
-          </div>
-        </div>
-
-        <div class="proj-card idea-card reveal" style="--delay:0.2s">
-          <div class="pc-header">
-            <div class="pc-num">04</div>
-            <span class="pc-status idea">Idea</span>
-          </div>
-          <h3 class="pc-title">¿Siguiente reto?</h3>
-          <p class="pc-desc">Siempre buscando nuevos desafíos. El próximo proyecto está en camino.</p>
-          <div class="idea-icon">?</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== FORMACIÓN ===== -->
-  <section class="section" id="formacion">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">03</span>
-        <h2 class="section-title">Formación</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="timeline">
-        <div class="tl-item reveal" style="--delay:0s">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <div class="tl-header">
+        <ol class="education">
+          <li class="edu-card">
+            <div class="edu-head">
               <div>
-                <span class="tl-period">2025 — Presente</span>
-                <h3 class="tl-title">Tecnólogo en Análisis y Desarrollo de Software</h3>
-                <p class="tl-org">SENA — Servicio Nacional de Aprendizaje</p>
+                <h3>Tecnólogo en Análisis y Desarrollo de Software (ADSO)</h3>
+                <p class="edu-org">SENA — Servicio Nacional de Aprendizaje</p>
               </div>
-              <span class="tl-badge active">En curso</span>
+              <div class="edu-meta">
+                <span class="badge badge-progress">En curso</span>
+                <span class="edu-date">2025 — Presente</span>
+              </div>
             </div>
-            <p class="tl-desc">Formación técnica en desarrollo de software con énfasis en programación orientada a objetos, bases de datos relacionales, desarrollo web y metodologías ágiles.</p>
-            <div class="tl-skills">
-              <span class="ts-tag">POO</span>
-              <span class="ts-tag">Bases de Datos</span>
-              <span class="ts-tag">Desarrollo Web</span>
-              <span class="ts-tag">Scrum</span>
+            <p>
+              Análisis de requerimientos, programación orientada a objetos, diseño de bases de datos,
+              desarrollo web y móvil, pruebas de software y metodologías ágiles (Scrum).
+            </p>
+            <ul class="tags" aria-label="Temas">
+              <li>POO</li><li>Bases de datos</li><li>Desarrollo web</li><li>Desarrollo móvil</li><li>Pruebas</li><li>Scrum</li>
+            </ul>
+          </li>
+
+          <li class="edu-card">
+            <div class="edu-head">
+              <div>
+                <h3>Técnico en Programación de Software</h3>
+                <p class="edu-org">Formación técnica</p>
+              </div>
+              <div class="edu-meta">
+                <span class="badge badge-done">Completado</span>
+                <span class="edu-date">2024 — 2025</span>
+              </div>
+            </div>
+            <p>
+              Fundamentos de programación, lógica, bases de datos relacionales y desarrollo de
+              aplicaciones. Culminé con mi primer proyecto full stack de principio a fin.
+            </p>
+            <ul class="tags" aria-label="Temas">
+              <li>Lógica de programación</li><li>Java</li><li>SQL / MySQL</li><li>HTML y CSS</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== PROYECTOS ===== -->
+    <section class="section" id="proyectos" aria-labelledby="proyectos-title">
+      <div class="container">
+        <h2 class="section-title" id="proyectos-title">Proyectos</h2>
+        <p class="section-intro">Proyectos reales con el código publicado en GitHub.</p>
+
+        <!-- Proyecto destacado -->
+        <article class="project project-featured">
+          <div class="project-head">
+            <span class="badge badge-accent">Proyecto destacado</span>
+            <h3>Golden Booking</h3>
+            <p class="project-type">Plataforma web de reservas · Full Stack</p>
+          </div>
+
+          <div class="project-body">
+            <div>
+              <p>
+                Sistema de reservas para un club: espacios deportivos por horas y habitaciones de
+                hotel por noches, con un panel de administración y un portal para clientes.
+              </p>
+              <ul class="checklist">
+                <li>API REST con Spring Boot, Spring Security y autenticación JWT con refresh token.</li>
+                <li>Roles de administrador y cliente: aprobar, cancelar y reprogramar reservas.</li>
+                <li>Notificaciones en tiempo real con WebSocket (STOMP) y correos automáticos.</li>
+                <li>Reportes de reservas e ingresos descargables en Excel y PDF.</li>
+                <li>24 suites de pruebas de extremo a extremo con Cypress.</li>
+                <li>Despliegue: frontend en Vercel y backend en AWS EC2 con HTTPS y respaldos diarios de MongoDB.</li>
+              </ul>
+            </div>
+            <div class="project-side">
+              <h4>Tecnologías</h4>
+              <ul class="tags">
+                <li>React</li><li>Vite</li><li>React Hook Form</li><li>Zod</li>
+                <li>Java</li><li>Spring Boot</li><li>Spring Security</li><li>JWT</li>
+                <li>MongoDB</li><li>WebSocket</li><li>Cypress</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn-primary btn-sm" href="https://github.com/MiguelVargas20/GOLDEN-BOOKING-FRONTEND" target="_blank" rel="noopener noreferrer">Código frontend</a>
+                <a class="btn btn-secondary btn-sm" href="https://github.com/MiguelVargas20/GOLDEN-BOOKING-BACKEND" target="_blank" rel="noopener noreferrer">Código backend</a>
+              </div>
             </div>
           </div>
+        </article>
+
+        <!-- Otros proyectos -->
+        <div class="project-grid">
+          <article class="project">
+            <p class="project-type">Aplicación móvil · Flutter</p>
+            <h3>Golden Booking Móvil</h3>
+            <p>
+              Cliente móvil que consume la API de Golden Booking: inicio de sesión, registro,
+              consulta de habitaciones y gestión de reservas, con el token guardado de forma segura.
+            </p>
+            <ul class="tags">
+              <li>Flutter</li><li>Dart</li><li>API REST</li><li>Secure Storage</li>
+            </ul>
+            <div class="project-links">
+              <a class="link-arrow" href="https://github.com/MiguelVargas20/FLUTTER-PRACTICA" target="_blank" rel="noopener noreferrer">Ver código</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <p class="project-type">Aplicación web · Full Stack</p>
+            <h3>BiblioRed</h3>
+            <p>
+              Sistema de gestión de biblioteca: catálogo de libros, préstamos, usuarios y perfiles,
+              con rutas protegidas y validación de formularios.
+            </p>
+            <ul class="tags">
+              <li>React</li><li>Axios</li><li>Yup</li><li>Java 21</li><li>Spring Boot</li><li>MongoDB</li><li>JWT</li>
+            </ul>
+            <div class="project-links">
+              <a class="link-arrow" href="https://github.com/MiguelVargas20/PROYECTO-JAVA-GUIA-FRONT" target="_blank" rel="noopener noreferrer">Frontend</a>
+              <a class="link-arrow" href="https://github.com/MiguelVargas20/PROYECTO-GUIA-JAVA-BACK" target="_blank" rel="noopener noreferrer">Backend</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <p class="project-type">Aplicación móvil · Flutter</p>
+            <h3>Calculadora Móvil</h3>
+            <p>
+              Calculadora multiplataforma en modo oscuro con operaciones aritméticas, manejo de
+              decimales y control de estado en tiempo real.
+            </p>
+            <ul class="tags">
+              <li>Flutter</li><li>Dart</li><li>Android</li>
+            </ul>
+            <div class="project-links">
+              <a class="link-arrow" href="https://github.com/MiguelVargas20/DESARROLLO-MOVIL-FLUTTER" target="_blank" rel="noopener noreferrer">Ver código</a>
+            </div>
+          </article>
         </div>
 
-        <div class="tl-item reveal" style="--delay:0.15s">
-          <div class="tl-dot"></div>
-          <div class="tl-content">
-            <div class="tl-header">
-              <div>
-                <span class="tl-period">2024 - 2025</span>
-                <h3 class="tl-title">Técnico en Programación de Software</h3>
-                <p class="tl-org">Proyecto Académico — Full Stack</p>
-              </div>
-              <span class="tl-badge done">Completado</span>
-            </div>
-            <p class="tl-desc">Desarrollo completo de una aplicación de gestión de reservas con React y Spring Boot. Primer proyecto full-stack end-to-end.</p>
-            <div class="tl-skills">
-              <span class="ts-tag">React</span>
-              <span class="ts-tag">Java</span>
-              <span class="ts-tag">MySQL</span>
-              <span class="ts-tag">REST API</span>
-            </div>
+        <p class="more-link">
+          <a class="link-arrow" href="https://github.com/MiguelVargas20?tab=repositories" target="_blank" rel="noopener noreferrer">Ver todos mis repositorios en GitHub</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== HABILIDADES ===== -->
+    <section class="section section-alt" id="habilidades" aria-labelledby="habilidades-title">
+      <div class="container">
+        <h2 class="section-title" id="habilidades-title">Habilidades técnicas</h2>
+        <p class="section-intro">Tecnologías que he usado en mis proyectos y en mi formación.</p>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Backend</h3>
+            <ul><li>Java</li><li>Spring Boot</li><li>Spring Security y JWT</li><li>APIs REST</li><li>Maven</li></ul>
           </div>
-        </div>
-
-        <div class="tl-item reveal" style="--delay:0.3s">
-          <div class="tl-dot future"></div>
-          <div class="tl-content tl-future">
-            <div class="tl-header">
-              <div>
-                <span class="tl-period">Próximo</span>
-                <h3 class="tl-title">Nuevas certificaciones y proyectos</h3>
-                <p class="tl-org">En camino...</p>
-              </div>
-              <span class="tl-badge future-badge">Pronto</span>
-            </div>
-            <p class="tl-desc">Siempre expandiendo conocimientos. El camino del aprendizaje nunca termina.</p>
+          <div class="skill-group">
+            <h3>Frontend</h3>
+            <ul><li>React</li><li>JavaScript (ES6+)</li><li>HTML5 y CSS3</li><li>Vite</li><li>React Hook Form / Zod</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Móvil</h3>
+            <ul><li>Flutter</li><li>Dart</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Bases de datos</h3>
+            <ul><li>MongoDB</li><li>MySQL</li><li>SQL</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Herramientas</h3>
+            <ul><li>Git y GitHub</li><li>Cypress (pruebas E2E)</li><li>Vercel y AWS EC2</li><li>VS Code</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Otros</h3>
+            <ul><li>Python (básico)</li><li>Scrum</li><li>Trabajo en equipo</li></ul>
           </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- ===== CONTACTO ===== -->
+    <section class="section" id="contacto" aria-labelledby="contacto-title">
+      <div class="container">
+        <h2 class="section-title" id="contacto-title">Contacto</h2>
+        <p class="section-intro">¿Tienes una vacante, una práctica o un proyecto? Escríbeme y te respondo lo antes posible.</p>
 
-  <!-- ===== CONTACTO ===== -->
-  <section class="section section-dark" id="contacto">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">04</span>
-        <h2 class="section-title">Contacto</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="contact-grid">
-        <!-- TERMINAL DE CONTACTO -->
-        <div class="contact-terminal reveal">
-          <div class="terminal-bar">
-            <div class="t-dot t-red"></div>
-            <div class="t-dot t-yellow"></div>
-            <div class="t-dot t-green"></div>
-            <span class="t-title">contact.sh</span>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <ul class="contact-list">
+              <li>
+                <span class="contact-label">Correo</span>
+                <a href="mailto:andresvarg150@gmail.com">andresvarg150@gmail.com</a>
+              </li>
+              <li>
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/miguel-andres-vargas-leon-a4a3a0330" target="_blank" rel="noopener noreferrer">Miguel Andrés Vargas León</a>
+              </li>
+              <li>
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/MiguelVargas20" target="_blank" rel="noopener noreferrer">@MiguelVargas20</a>
+              </li>
+              <li>
+                <span class="contact-label">Ubicación</span>
+                <span>Bogotá, Colombia</span>
+              </li>
+            </ul>
           </div>
-          <div class="terminal-body">
-            <div class="t-line">
-              <span class="t-prompt">$</span>
-              <span class="t-cmd">Info de contacto</span>
-            </div>
-            <div class="t-output">
-              <p class="contact-tagline">Trabajemos juntos</p>
-              <p class="contact-sub">Estoy abierto a oportunidades, prácticas y proyectos colaborativos. No dudes en escribirme.</p>
-            </div>
 
-            <div class="t-line mt-lg">
-              <span class="t-prompt">$</span>
-              <span class="t-cmd"> Links de contacto</span>
-            </div>
-            <div class="t-output">
-              <div class="social-links">
-                <a href="https://github.com/MiguelVargas20" target="_blank" class="social-link">
-                  <div class="sl-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  </div>
-                  <div class="sl-info">
-                    <span class="sl-name">GitHub</span>
-                    <span class="sl-handle">@MiguelVargas20</span>
-                  </div>
-                  <span class="sl-arrow">↗</span>
-                </a>
-                <a href="https://www.linkedin.com/in/miguel-andres-vargas-leon-a4a3a0330" target="_blank" class="social-link">
-                  <div class="sl-icon sl-li">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  </div>
-                  <div class="sl-info">
-                    <span class="sl-name">LinkedIn</span>
-                    <span class="sl-handle">Miguel Andres Vargas Leon</span>
-                  </div>
-                  <span class="sl-arrow">↗</span>
-                </a>
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/andresvarg150@gmail.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <!-- Campo trampa para bots: los humanos no lo ven -->
+            <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="nombre">Nombre <span aria-hidden="true">*</span></label>
+                <input id="nombre" name="nombre" type="text" autocomplete="name" required minlength="2" maxlength="80">
+                <p class="field-error" id="nombre-error" aria-live="polite"></p>
+              </div>
+              <div class="form-field">
+                <label for="email">Correo electrónico <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="120">
+                <p class="field-error" id="email-error" aria-live="polite"></p>
               </div>
             </div>
 
-            <div class="t-line mt-lg blink-line">
-              <span class="t-prompt">$</span>
-              <span class="caret-line">▋</span>
+            <div class="form-field">
+              <label for="asunto">Asunto</label>
+              <input id="asunto" name="asunto" type="text" maxlength="120" placeholder="Vacante, práctica, proyecto…">
             </div>
-          </div>
-        </div>
 
-        <!-- FORMULARIO -->
-        <div class="contact-form-wrap reveal" style="--delay:0.2s">
-          <div class="form-header">
-            <span class="form-title">// Enviar mensaje</span>
-          </div>
-          <form class="contact-form" id="contactForm">
-            <div class="form-group">
-              <label class="form-label"> Nombre<span class="req">*</span></label>
-              <input type="text" class="form-input" placeholder="Tu nombre completo" required>
+            <div class="form-field">
+              <label for="mensaje">Mensaje <span aria-hidden="true">*</span></label>
+              <textarea id="mensaje" name="mensaje" rows="6" required minlength="10" maxlength="2000"></textarea>
+              <p class="field-error" id="mensaje-error" aria-live="polite"></p>
             </div>
-            <div class="form-group">
-              <label class="form-label">Email<span class="req">*</span></label>
-              <input type="email" class="form-input" placeholder="tu@email.com" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Asunto</label>
-              <input type="text" class="form-input" placeholder="Oportunidad / Colaboración / Consulta">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Mensaje<span class="req">*</span></label>
-              <textarea class="form-input form-textarea" placeholder="Cuéntame sobre tu proyecto o propuesta..." required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">
-              <span class="btn-text">Enviar Mensaje</span>
-              <span class="btn-icon">→</span>
-            </button>
+
+            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Enviar mensaje</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="brand-bracket">[</span>mv<span class="brand-bracket">]</span>
-        <span class="footer-sub">Miguel Andres Vargas León</span>
-      </div>
-      <div class="footer-copy">
-        <span>© 2026 — Diseñado & Desarrollado por</span>
-        <span class="footer-name">Miguel Vargas</span>
-      </div>
-      <div class="footer-scroll-top">
-        <button id="scrollTop" aria-label="Volver arriba">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-        </button>
-      </div>
+      <p>© <span id="year">2026</span> Miguel Andrés Vargas León</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/MiguelVargas20" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/miguel-andres-vargas-leon-a4a3a0330" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="mailto:andresvarg150@gmail.com">Correo</a></li>
+        <li><a href="#inicio">Volver arriba ↑</a></li>
+      </ul>
     </div>
   </footer>
 
